@@ -25,9 +25,9 @@ function NavBar() {
   );
 
   return (
-    <>
+    <div className="relative z-10">
       <Headroom>
-        <div className="navbar bg-base-300 rounded-b-xl py-1">
+        <div className="navbar backdrop-blur-2xl rounded-b-xl ">
           <div className="navbar-start">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -66,7 +66,7 @@ function NavBar() {
           </div>
         </div>
       </Headroom>
-    </>
+    </div>
   );
 }
 

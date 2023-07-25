@@ -7,12 +7,13 @@ import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { InfoContext } from "../../../provider/InfoProvider";
 import "./Hero.css";
+import AvailabilityForm from "./AvailabilityForm";
 
 const Hero = () => {
   const { basicInfo, heroDetails } = useContext(InfoContext);
-  
+
   return (
-    <div>
+    <section>
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
@@ -39,23 +40,32 @@ const Hero = () => {
           }}
           data-swiper-parallax="-23%"
         ></div>
-        {heroDetails?.map((item , index) => (
-            <SwiperSlide key={index}>
-              <div className="flex justify-center items-center h-[80vh] mx-48">
-                <div className="">
-                  <div className="text-6xl font-bold" data-swiper-parallax="-300">
-                    {item?.title}
-                  </div>
-                  <div className="w-1/2 mt-4" data-swiper-parallax="-100">
-                    <p>{item?.description}</p>
-                  </div>
+        {heroDetails?.map((item, index) => (
+          <SwiperSlide key={index}>
+            <div className="flex justify-center items-center h-[80vh] mx-48">
+              <div className="">
+                <div className="text-6xl font-bold" data-swiper-parallax="-400">
+                  {item?.title}
+                </div>
+                <div className="w-1/2 mt-4" data-swiper-parallax="-300">
+                  <p>{item?.description}</p>
+                </div>
+                <div
+                  className="btn btn-wide btn-outline btn-primary mt-4"
+                  data-swiper-parallax="-200"
+                >
+                  Book Now
                 </div>
               </div>
-            </SwiperSlide>
-          
+            </div>
+          </SwiperSlide>
         ))}
+        
       </Swiper>
-    </div>
+      <div className="max-w-screen-xl mx-auto">
+      <AvailabilityForm />
+      </div>
+    </section>
   );
 };
 

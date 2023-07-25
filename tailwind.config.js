@@ -11,13 +11,13 @@ export default {
   daisyui: {
     themes: [{
       mytheme: {
-        "primary": "#78D99D",
-        "secondary": "#CAE3D3",
-        "accent": "#4D9368",
-        "neutral": "#003F00",
+        "primary": "#DEB708",
+        "secondary": "#F5E8AD",
+        "accent": "#C0A116",
+        "neutral": "#584700",
         "base-100": "#E4F1E9",
       },
-    }, "acid"],
+    }],
   },
 }
 
