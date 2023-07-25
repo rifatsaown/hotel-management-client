@@ -13,13 +13,13 @@ const Hero = () => {
   const { basicInfo, heroDetails } = useContext(InfoContext);
 
   return (
-    <section>
+    <section className="mb-8">
       <Swiper
         style={{
           "--swiper-navigation-color": "#fff",
           "--swiper-pagination-color": "#fff",
         }}
-        speed={600}
+        speed={2000}
         parallax={true}
         pagination={{
           clickable: true,
@@ -42,12 +42,12 @@ const Hero = () => {
         ></div>
         {heroDetails?.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="flex justify-center items-center h-[80vh] mx-48">
+            <div className="flex justify-center items-center h-[80vh] lg:mx-48">
               <div className="">
-                <div className="text-6xl font-bold" data-swiper-parallax="-400">
+                <div className="lg:text-6xl text-3xl font-bold" data-swiper-parallax="-400">
                   {item?.title}
                 </div>
-                <div className="w-1/2 mt-4" data-swiper-parallax="-300">
+                <div className="lg:w-1/2 mt-4" data-swiper-parallax="-300">
                   <p>{item?.description}</p>
                 </div>
                 <div
@@ -62,7 +62,7 @@ const Hero = () => {
         ))}
         
       </Swiper>
-      <div className="max-w-screen-xl mx-auto">
+      <div className="">
       <AvailabilityForm />
       </div>
     </section>

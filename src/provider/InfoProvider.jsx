@@ -6,20 +6,26 @@ export const InfoContext = createContext(null);
 const InfoProvider = ({ children }) => {
   const [basicInfo, setBasicInfo] = useState({});
   const [heroDetails, setHeroDetails] = useState([]);
+  const [aboutUs, setAboutUs] = useState([]);
 
   useEffect(() => {
     axios.get("http://localhost:5000/api/hotelInfo").then((res) => {
-      setBasicInfo(res.data);
-    
-    axios.get("http://localhost:5000/api/heroDetails").then((res) => {
-      setHeroDetails(res.data);
-    });
+      setBasicInfo(res.data[0]);
+
+      axios.get("http://localhost:5000/api/heroDetails").then((res) => {
+        setHeroDetails(res.data);
+      });
+
+      axios.get("http://localhost:5000/api/aboutUs").then((res) => {
+        setAboutUs(res.data[0]);
+      });
     });
   }, []);
 
   const hotelInfo = {
     basicInfo,
     heroDetails,
+    aboutUs,
   };
 
   return (

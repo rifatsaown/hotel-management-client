@@ -6,9 +6,10 @@ import "react-nice-dates/build/style.css";
 function AvailabilityForm() {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
+  console.log(startDate);
   return (
-    <div className="flex justify-center -m-20 relative z-10 ">
-      <div className="backdrop-blur-2xl p-8 px-10 rounded-lg">
+    <div className="lg:flex justify-center -mt-20 relative z-10 ">
+      <div className="backdrop-blur-2xl rounded-lg">
         <DateRangePicker
           startDate={startDate}
           endDate={endDate}
@@ -20,31 +21,40 @@ function AvailabilityForm() {
           locale={enGB}
         >
           {({ startDateInputProps, endDateInputProps, focus }) => (
-            <form className="date-range flex">
-              <div>
-              <input
-                className={"input-primary input-ghost font-bold input" + (focus === START_DATE ? " -focused" : "")}
-                {...startDateInputProps}
-                placeholder="Check In"
-              />
+            <form className="date-range mt-2 lg:flex p-8 px-16">
+              <div className="">
+                <input
+                  className={
+                    "input-primary input-ghost mb-2 font-bold input" +
+                    (focus === START_DATE ? " -focused" : "")
+                  }
+                  {...startDateInputProps}
+                  placeholder="Check In"
+                />
               </div>
               <div>
-              <input
-                className={
-                  "input-primary input-ghost mx-2 input" +
-                  (focus === END_DATE ? " -focused" : "")
-                }
-                {...endDateInputProps}
-                placeholder="Check-out"
-              />
+                <input
+                  className={
+                    "input-primary input-ghost font-bold mb-2 lg:mx-2 input" +
+                    (focus === END_DATE ? " -focused" : "")
+                  }
+                  {...endDateInputProps}
+                  placeholder="Check-out"
+                />
               </div>
               <div>
-              <input className="input input-primary font-bold input-ghost" type="number" 
-              placeholder="Guests"
-              />
+                <input
+                  className="input input-primary mb-2 font-bold input-ghost"
+                  type="number"
+                  placeholder="Guests"
+                />
               </div>
               <div>
-              <input className="btn btn-primary ml-2" type="submit" value="Check Availability" />
+                <input
+                  className="btn mb-2 btn-primary lg:ml-2"
+                  type="submit"
+                  value="Check Availability"
+                />
               </div>
             </form>
           )}
