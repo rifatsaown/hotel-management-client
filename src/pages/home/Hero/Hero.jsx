@@ -11,7 +11,7 @@ import AvailabilityForm from "./AvailabilityForm";
 
 const Hero = () => {
   const { basicInfo, heroDetails } = useContext(InfoContext);
-
+  console.log(heroDetails);
   return (
     <section className="mb-8">
       <Swiper
