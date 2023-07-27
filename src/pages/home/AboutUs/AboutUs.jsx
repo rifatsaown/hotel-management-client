@@ -1,10 +1,11 @@
 import { useContext } from "react";
+import { BsInfoCircle } from "react-icons/bs";
 import { InfoContext } from "../../../provider/InfoProvider";
 
 const AboutUs = () => {
   const { aboutUs } = useContext(InfoContext);
   return (
-    <section className="">
+    <section>
       <div className="lg:flex">
         <div className="grid items-center lg:w-1/2 lg:order-last">
           <div className="pl-4">
@@ -16,16 +17,16 @@ const AboutUs = () => {
             </h1>
             <p className="mt-2">{aboutUs?.content}</p>
             <button className="btn btn-wide btn-primary mt-4">
-              About us
+              About us <BsInfoCircle/>
             </button>
           </div>
         </div>
-        <div className="">
-          <div className="lg:w-1/2 lg:ml-20 p-4">
-            <img src={aboutUs?.bannerImg1} alt="" />
+        <div >
+          <div className="lg:w-1/2 lg:ml-20 p-4 ">
+            <img className="rounded-xl" src={aboutUs?.bannerImg1} alt="" />
           </div>
           <div className="lg:w-1/2 lg:-mt-48">
-            <img src={aboutUs?.bannerImg2} alt="" />
+            <img className="rounded-xl rounded-s-3xl" src={aboutUs?.bannerImg2} alt="" />
           </div>
         </div>
       </div>

@@ -6,12 +6,12 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { InfoContext } from "../../../provider/InfoProvider";
-import "./Hero.css";
 import AvailabilityForm from "./AvailabilityForm";
+import "./Hero.css";
+import { BsFillCheckSquareFill } from "react-icons/bs";
 
 const Hero = () => {
   const { basicInfo, heroDetails } = useContext(InfoContext);
-  console.log(heroDetails);
   return (
     <section className="mb-8">
       <Swiper
@@ -44,7 +44,10 @@ const Hero = () => {
           <SwiperSlide key={index}>
             <div className="flex justify-center items-center h-[80vh] lg:mx-48">
               <div className="">
-                <div className="lg:text-6xl text-3xl font-bold" data-swiper-parallax="-400">
+                <div
+                  className="lg:text-6xl text-3xl font-bold"
+                  data-swiper-parallax="-400"
+                >
                   {item?.title}
                 </div>
                 <div className="lg:w-1/2 mt-4" data-swiper-parallax="-300">
@@ -54,16 +57,15 @@ const Hero = () => {
                   className="btn btn-wide btn-outline btn-primary mt-4"
                   data-swiper-parallax="-200"
                 >
-                  Book Now
+                  Book Now <BsFillCheckSquareFill />
                 </div>
               </div>
             </div>
           </SwiperSlide>
         ))}
-        
       </Swiper>
       <div className="">
-      <AvailabilityForm />
+        <AvailabilityForm />
       </div>
     </section>
   );

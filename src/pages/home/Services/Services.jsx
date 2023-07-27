@@ -12,10 +12,11 @@ const Services = () => {
         backgroundImage: `url(${services?.bgImg})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
+        clipPath: "polygon(0 0, 100% 15%, 100% 100%, 0 85%)",
       }}
     >
-      <div className="w-full h-full flex justify-between items-center backdrop-brightness-50">
-        <div className="w-1/2">
+      <div className="w-full h-full flex justify-around items-center backdrop-brightness-50">
+        <div className="w-2/5">
           <h2 className="text-3xl lg:text-5xl font-bold">{services?.title}</h2>
           <p className="mt-2">{services?.details}</p>
         </div>
