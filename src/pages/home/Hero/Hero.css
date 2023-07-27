@@ -39,3 +39,10 @@ body {
     top: 0; bottom: 0;
     background: rgba(0, 0, 0, 0.473);
   }
+
+.btn{
+  @apply rounded-full
+}
+.input{
+  @apply rounded-full
+}
