@@ -2,6 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 export const InfoContext = createContext(null);
+axios.defaults.baseURL = 'https://hotel-managemant-server.vercel.app/';
 
 const InfoProvider = ({ children }) => {
   const [basicInfo, setBasicInfo] = useState({});
@@ -10,18 +11,18 @@ const InfoProvider = ({ children }) => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/hotelInfo").then((res) => {
+    axios.get("/api/hotelInfo").then((res) => {
       setBasicInfo(res.data[0]);
 
-      axios.get("http://localhost:5000/api/heroDetails").then((res) => {
+      axios.get("/api/heroDetails").then((res) => {
         setHeroDetails(res.data);
       });
 
-      axios.get("http://localhost:5000/api/aboutUs").then((res) => {
+      axios.get("/api/aboutUs").then((res) => {
         setAboutUs(res.data);
       });
 
-      axios.get("http://localhost:5000/api/services").then((res) => {
+      axios.get("/api/services").then((res) => {
         setServices(res.data);
       });
     });

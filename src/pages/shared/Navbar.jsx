@@ -13,13 +13,13 @@ function NavBar() {
         <a>Rooms</a>
       </li>
       <li>
-        <a>Services</a>
+        <a href="#services">Services</a>
       </li>
       <li>
-        <a>Find Best Value</a>
+        <a href="#findBestValue">Find Best Value</a>
       </li>
       <li>
-        <a>Contact</a>
+        <a href="#contact">Contact</a>
       </li>
     </>
   );
