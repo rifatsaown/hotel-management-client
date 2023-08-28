@@ -1,16 +1,20 @@
 import { useContext} from "react";
 import Headroom from "react-headroom";
+import { motion } from "framer-motion";
 import { InfoContext } from "../../provider/InfoProvider";
+import { headerVariants } from "./motion";
+import useHeaderShadow from "../../hooks/useHeaderShawow";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
     const {basicInfo} = useContext(InfoContext);
   const links = (
     <>
       <li>
-        <a>Home</a>
+        <NavLink to='/'>Home</NavLink>
       </li>
       <li>
-        <a>Rooms</a>
+        <NavLink to='/rooms'>Rooms</NavLink>
       </li>
       <li>
         <a href="#services">Services</a>
@@ -25,6 +29,13 @@ function NavBar() {
   );
 
   return (
+    <motion.div
+      variants={headerVariants}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.25 }}
+      style={{ boxShadow: useHeaderShadow }}
+    >
     <div className="relative z-10">
       <Headroom>
         <div className="navbar backdrop-blur-2xl rounded-b-xl ">
@@ -67,6 +78,7 @@ function NavBar() {
         </div>
       </Headroom>
     </div>
+    </motion.div>
   );
 }
 

@@ -1,9 +1,20 @@
 import { useContext } from "react";
 import { InfoContext } from "../../../provider/InfoProvider";
+import { motion } from "framer-motion";
+import { footerVariants, staggerChildren } from "../../shared/motion";
 
 const ContactFrom = () => {
     const {basicInfo} = useContext(InfoContext);
   return (
+    <motion.section
+      variants={staggerChildren}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
+    >
+      <motion.div
+        variants={footerVariants}
+      >
     <section className="mb-32 mt-16 " id="contact">
       <div className="relative h-[300px] rounded-xl overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://i.ibb.co/fMHS5bK/parallax18.jpg')]"></div>
       <div className="container px-6 md:px-12">
@@ -186,6 +197,9 @@ const ContactFrom = () => {
         </div>
       </div>
     </section>
+    </motion.div>
+      
+    </motion.section>
   );
 };
 

@@ -1,6 +1,13 @@
+import { motion } from "framer-motion";
+import { fadeIn, staggerChildren, textVariant } from "../../shared/motion";
+
 const PriceCard = () => {
   return (
-    <div
+    <motion.section
+    variants={staggerChildren}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: false, amount: 0.25 }}
         id="findBestValue"
       className="hero min-h-[70vh] mt-4"
       style={{
@@ -10,9 +17,15 @@ const PriceCard = () => {
     >
       <div className="hero-overlay bg-opacity-60  rounded-2xl"></div>
       <div>
-      <h2 className="text-center text-3xl font-bold mt-2">Find Best Value</h2>
+      <motion.div
+          variants={textVariant(0.4)}
+          className={`text-center `}
+        >
+      <h2 className="text-3xl font-bold mt-2">Find Best Value</h2>
+      </motion.div>
       <div className="lg:flex gap-3 space-y-3 mx-8 my-8 text-center flex-wrap">
-      <div className="card lg:w-96 backdrop-blur-3xl mt-3 hover:-translate-y-4 hover:transition-all">
+        
+      <motion.div variants={fadeIn("right", "tween", 0.7, 0.6)} className="card lg:w-96 backdrop-blur-3xl mt-3 hover:-translate-y-4 hover:transition-all">
         <div className="card-body">
           <h2 className="text-2xl font-semibold">Standard Room</h2>
           <p className="font-semibold">$ <span className="text-4xl font-extrabold">40</span> /night</p>
@@ -27,8 +40,9 @@ const PriceCard = () => {
             <button className="btn btn-primary">more info</button>
           </div>
         </div>
-      </div>
-      <div className="card lg:w-96 glass hover:-translate-y-4 hover:transition-all">
+      </motion.div>
+
+      <motion.div variants={fadeIn("up", "tween", 0.7, 0.6)} className="card lg:w-96 glass hover:-translate-y-4 hover:transition-all">
         <div className="card-body">
           <h2 className="text-2xl font-semibold">Deluxe Room</h2>
           <p className="font-semibold">$ <span className="text-4xl font-extrabold">55</span> /night</p>
@@ -42,8 +56,9 @@ const PriceCard = () => {
             <button className="btn btn-primary">more info</button>
           </div>
         </div>
-      </div>
-      <div className="card lg:w-96 backdrop-blur-3xl hover:-translate-y-4 hover:transition-all">
+      </motion.div>
+
+      <motion.div variants={fadeIn("left", "tween", 0.7, 0.6)} className="card lg:w-96 backdrop-blur-3xl hover:-translate-y-4 hover:transition-all">
         <div className="card-body">
           <h2 className="text-2xl font-semibold">Suite</h2>
           <p className="font-semibold">$ <span className="text-4xl font-extrabold">74</span> /night</p>
@@ -58,10 +73,11 @@ const PriceCard = () => {
             <button className="btn btn-primary">more info</button>
           </div>
         </div>
+      </motion.div>
+
       </div>
       </div>
-      </div>
-    </div>
+    </motion.section>
   );
 };
 
