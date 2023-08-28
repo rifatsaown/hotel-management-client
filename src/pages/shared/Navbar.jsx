@@ -4,7 +4,8 @@ import { motion } from "framer-motion";
 import { InfoContext } from "../../provider/InfoProvider";
 import { headerVariants } from "./motion";
 import useHeaderShadow from "../../hooks/useHeaderShawow";
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
+import { BiLogInCircle } from "react-icons/bi";
 
 function NavBar() {
     const {basicInfo} = useContext(InfoContext);
@@ -17,13 +18,13 @@ function NavBar() {
         <NavLink to='/rooms'>Rooms</NavLink>
       </li>
       <li>
-        <a href="#services">Services</a>
+        <NavLink to="/about">About</NavLink>
       </li>
       <li>
-        <a href="#findBestValue">Find Best Value</a>
+        <NavLink to="/contact">Contact</NavLink>
       </li>
       <li>
-        <a href="#contact">Contact</a>
+        <NavLink to="/login">Login <BiLogInCircle/></NavLink>
       </li>
     </>
   );
