@@ -5,6 +5,7 @@ export const InfoContext = createContext(null);
 axios.defaults.baseURL = 'http://localhost:5000';
 
 const InfoProvider = ({ children }) => {
+  const [paymentInfo, setPaymentInfo] = useState({});
   const [basicInfo, setBasicInfo] = useState({});
   const [heroDetails, setHeroDetails] = useState([]);
   const [aboutUs, setAboutUs] = useState({});
@@ -33,7 +34,10 @@ const InfoProvider = ({ children }) => {
     });
   }, []);
 
+
   const hotelInfo = {
+    paymentInfo,
+    setPaymentInfo,
     basicInfo,
     heroDetails,
     aboutUs,

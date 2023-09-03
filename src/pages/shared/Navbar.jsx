@@ -11,7 +11,6 @@ import useBookingList from "../../hooks/useBookingList";
 
 function NavBar() {
   const {bookingList} = useBookingList();
-  
   const { user, logOut } = useContext(AuthContext);
   const { basicInfo } = useContext(InfoContext);
 
@@ -36,7 +35,7 @@ function NavBar() {
       {user ? (
         <>
           <li>
-            <Link>
+            <Link to="dashboard">
               Dashboard 
               <div className="badge">{bookingList.length}</div>
             </Link>
@@ -120,7 +119,7 @@ function NavBar() {
                           <a className="justify-between">Profile</a>
                         </li>
                         <li>
-                          <a>Dashboard</a>
+                          <Link to ='/dashboard'>Dashboard</Link>
                         </li>
                         <li>
                           <a onClick={handleLogout}>Logout</a>

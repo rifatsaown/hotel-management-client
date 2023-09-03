@@ -12,6 +12,12 @@ import LoginRoute from "./LoginRoute";
 import BookNow from "../pages/BookNow/BookNow";
 import PrivateRoutes from "./PrivateRoutes";
 import RoomDetails from "../pages/rooms/RoomDetails";
+import AdminRoute from "./AdminRoutes";
+import Dashboard from "../pages/Dashboard";
+import AllUsers from "../pages/Dashboard/AllUsers";
+import MyBookingList from "../pages/Dashboard/MyBookingList";
+import Payment from "../pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory";
 
 const router = createBrowserRouter([
   {
@@ -66,12 +72,76 @@ const router = createBrowserRouter([
           
         ],
       },
-      {
-        path: "*",
-        element: <h1>Not Found</h1>,
-      }
     ],
   },
+  
+    {
+      path: "/dashboard",
+      element: (
+        <PrivateRoutes>
+          <Dashboard />
+        </PrivateRoutes>
+      ),
+      children: [
+        {
+          path: "mycart",
+          // element: <MyCart />,
+        },
+        {
+          path: "payment",
+          element: <Payment />,
+        },
+        {
+          path: "payment-history",
+          element: <PaymentHistory />,
+        },
+        {
+          path: "bookingList",
+          element: <MyBookingList />,
+        },
+        {
+          path: "home",
+          element: (
+            <AdminRoute>
+              <Home />
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "allusers",
+          element: (
+            <AdminRoute>
+              <AllUsers />
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "addItem",
+          element: (
+            <AdminRoute>
+              {/* <AddItem /> */}
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "manage-payment",
+          element: (
+            <AdminRoute>
+              {/* <ManagePayment /> */}
+            </AdminRoute>
+          ),
+        },
+        {
+          path: "manageItem",
+          element: (
+            <AdminRoute>
+              {/* <ManageItems /> */}
+            </AdminRoute>
+          ),
+        },
+      ],
+    },
+  
   {
     path: "*",
     element: <h1>Not Found</h1>,
