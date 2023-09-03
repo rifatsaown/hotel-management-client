@@ -1,10 +1,28 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "../../../provider/AuthProvider";
+import { toast } from "react-hot-toast";
+import handleErrorLogin from "../../../components/handleErrorLogin";
 
 const Register = () => {
+  const { registerWithEmail }= useContext(AuthContext);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    registerWithEmail(data.email, data.password)
+      .then(() => {
+        toast.success("Register successfully");
+      })
+      .catch((error) => {
+        handleErrorLogin(error ,"Register");
+        console.log(error);
+      });
+  };
+
   return (
     <div>
       <h2 className="text-3xl text-center font-semibold mb-4">Register</h2>
-      <form>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <div className="mb-4">
           <label
             className="block text-gray-700 text-sm font-bold mb-2"
@@ -17,7 +35,7 @@ const Register = () => {
             type="text"
             id="name"
             placeholder="Name"
-            required
+            {...register("name", { required: true })}
           />
         </div>
         <div className="mb-4">
@@ -32,7 +50,7 @@ const Register = () => {
             type="email"
             id="email"
             placeholder="Email"
-            required
+            {...register("email", { required: true })}
           />
         </div>
         <div className="mb-4">
@@ -47,7 +65,7 @@ const Register = () => {
             type="password"
             id="password"
             placeholder="Password"
-            required
+            {...register("password", { required: true })}
           />
         </div>
         <div className="mb-4">
@@ -58,11 +76,8 @@ const Register = () => {
             Photo URL
           </label>
           <input
-            className="input input-primary w-full"
-            type="text"
-            id="photoUrl"
-            placeholder="Photo URL"
-            required
+            className="file-input file-input-primary rounded-full w-full"
+            type="file"
           />
         </div>
         <button

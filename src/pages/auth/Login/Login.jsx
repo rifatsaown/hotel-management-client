@@ -14,7 +14,7 @@ const Login = () => {
         toast.success("Login successfully");
       })
       .catch((error) => {
-        handleErrorLogin(error);
+        handleErrorLogin(error , "Login");
       });
   };
 
