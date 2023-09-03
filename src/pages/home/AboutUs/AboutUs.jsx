@@ -3,6 +3,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { InfoContext } from "../../../provider/InfoProvider";
 import { motion } from "framer-motion";
 import { fadeIn, staggerContainer } from "../../shared/motion";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   const { aboutUs } = useContext(InfoContext);
@@ -29,9 +30,9 @@ const AboutUs = () => {
               {aboutUs?.heading}
             </h1>
             <p className="mt-2">{aboutUs?.content}</p>
-            <button className="btn btn-wide btn-primary mt-4">
+            <Link to='/about' className="btn btn-wide btn-primary mt-4">
               About us <BsInfoCircle/>
-            </button>
+            </Link>
           </div>
           </motion.span>
         </div>

@@ -6,6 +6,7 @@ import "./index.css";
 import AuthProvider from "./provider/AuthProvider";
 import InfoProvider from "./provider/InfoProvider";
 import router from "./router/Router.jsx";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -18,5 +19,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </HelmetProvider>
       </InfoProvider>
     </AuthProvider>
+    <div><Toaster/></div>
   </React.StrictMode>
 );

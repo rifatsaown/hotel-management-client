@@ -7,6 +7,7 @@ import Auth from "../pages/auth/Auth";
 import Login from "../pages/auth/Login/Login";
 import Register from "../pages/auth/Register/Register";
 import ResetPass from "../pages/auth/ResetPass/ResetPass";
+import About from "../pages/About/About";
 
 const router = createBrowserRouter([
   {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
       }, 
       {
         path: "/about",
-        element: <h1>ABout</h1>,
+        element: <About/>,
       },
       {
         path: "/contact",
