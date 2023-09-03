@@ -24,7 +24,7 @@ function NavBar() {
         <NavLink to="/contact">Contact</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login <BiLogInCircle/></NavLink>
+        <NavLink to="/auth/login">Login <BiLogInCircle/></NavLink>
       </li>
     </>
   );
@@ -32,7 +32,6 @@ function NavBar() {
   return (
     <motion.div
       variants={headerVariants}
-      initial="hidden"
       whileInView="show"
       viewport={{ once: true, amount: 0.25 }}
       style={{ boxShadow: useHeaderShadow }}

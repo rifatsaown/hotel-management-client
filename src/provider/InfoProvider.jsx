@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 export const InfoContext = createContext(null);
-axios.defaults.baseURL = 'https://hotel-managemant-server.vercel.app/';
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const InfoProvider = ({ children }) => {
   const [basicInfo, setBasicInfo] = useState({});

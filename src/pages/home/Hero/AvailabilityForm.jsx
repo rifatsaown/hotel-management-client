@@ -6,7 +6,14 @@ import "react-nice-dates/build/style.css";
 function AvailabilityForm() {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  console.log(startDate);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e.target.guests.value);
+    // console.log(startDate);
+    // console.log(endDate);
+  }
+
   return (
     <div className="lg:flex justify-center -mt-20 relative z-10 ">
       <div className="backdrop-blur-2xl rounded-lg">
@@ -21,7 +28,7 @@ function AvailabilityForm() {
           locale={enGB}
         >
           {({ startDateInputProps, endDateInputProps, focus }) => (
-            <form className="date-range mt-2 lg:flex p-8 px-16">
+            <form onSubmit={handleSubmit} className="date-range mt-2 lg:flex p-8 px-16">
               <div className="">
                 <input
                   className={
@@ -44,6 +51,7 @@ function AvailabilityForm() {
               </div>
               <div>
                 <input
+                  name="guests"
                   className="input input-primary mb-2 font-bold input-ghost"
                   type="number"
                   placeholder="Guests"

@@ -13,6 +13,7 @@ const AboutUs = () => {
         initial="hidden"
         whileInView="show"
         viewport={{ once: false, amount: 0.25 }}
+        className="max-w-screen-2xl mx-auto"
       >
       <div className="lg:flex">
         <div className="grid items-center lg:w-1/2 lg:order-last">

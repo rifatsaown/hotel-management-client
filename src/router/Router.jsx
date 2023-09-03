@@ -3,6 +3,10 @@ import MainLayout from "../layout/MainLayout";
 import Home from "../pages/home/Home";
 import Rooms from "../pages/rooms/Rooms";
 import ContactFrom from "../pages/ContactFrom/ContactFrom";
+import Auth from "../pages/auth/Auth";
+import Login from "../pages/auth/Login/Login";
+import Register from "../pages/auth/Register/Register";
+import ResetPass from "../pages/auth/ResetPass/ResetPass";
 
 const router = createBrowserRouter([
   {
@@ -26,8 +30,26 @@ const router = createBrowserRouter([
         element: <ContactFrom/>,
       },
       {
-        path: "/login",
-        element: <h1>Login</h1>,
+        path: "/auth",
+        element: <Auth/>,
+        children: [
+          {
+            path: "",
+            element: <Login/>,
+          },
+          {
+            path: "login",
+            element: <Login/>,
+          },
+          {
+            path: "register",
+            element: <Register/>,
+          },
+          {
+            path: "resetpass",
+            element: <ResetPass/>,
+          }
+        ],
       },
       {
         path: "*",

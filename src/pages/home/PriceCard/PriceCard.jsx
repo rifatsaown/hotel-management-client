@@ -21,7 +21,7 @@ const PriceCard = () => {
           variants={textVariant(0.4)}
           className={`text-center `}
         >
-      <h2 className="text-3xl font-bold mt-2">Find Best Value</h2>
+      <h2 className="text-3xl font-bold mt-2 backdrop-blur-3xl py-3 rounded-full">Find Best Value</h2>
       </motion.div>
       <div className="lg:flex gap-3 space-y-3 mx-8 my-8 text-center flex-wrap">
         

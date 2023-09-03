@@ -6,27 +6,27 @@ import { TiWiFi } from "react-icons/ti";
 const Card = () => {
   // Can be load from API
   return (
-    <div className="">
-      <h2 className="text-2xl font-semibold">We have:</h2>
-      <ul>
-        <li className="flex items-center">
-          <TiWiFi /> <span className="ml-2">Free Wifi</span>
-        </li>
-        <li className="flex items-center">
-          <CgPullClear /> <span className="ml-2">Rooftop Infinity Pool</span>
-        </li>
-        <li className="flex items-center">
-          <GiMuscleUp /> <span className="ml-2">A fitness center</span>
-        </li>
-        <li className="flex items-center">
-          <FiMonitor /> <span className="ml-2">Smart TV</span>
-        </li>
-        <li className="flex items-center">
-          <FiCoffee />{" "}
-          <span className="ml-2">A Nespresso coffee machine ineatch room</span>
-        </li>
-        <li></li>
-      </ul>
+    <div className="flex space-x-4">
+      <div className="flex flex-col items-center w-full text-center backdrop-blur-2xl p-4 rounded-xl">
+        <TiWiFi size={50} />
+        <p>Free Wifi</p>
+      </div>
+      <div className="flex flex-col items-center w-full text-center backdrop-blur-2xl p-4 rounded-xl">
+        <CgPullClear size={50} />
+        <p>Rooftop Infinity Pool</p>
+      </div>
+      <div className="flex flex-col items-center w-full text-center backdrop-blur-2xl p-4 rounded-xl">
+        <GiMuscleUp size={50} />
+        <p>A fitness center</p>
+      </div>
+      <div className="flex flex-col items-center w-full text-center backdrop-blur-2xl p-4 rounded-xl">
+        <FiMonitor size={50} />
+        <p>Smart TV</p>
+      </div>
+      <div className="flex flex-col items-center w-full text-center backdrop-blur-2xl p-4 rounded-xl">
+        <FiCoffee size={50} />
+        <p>A Nespresso coffee machine</p>
+      </div>
     </div>
   );
 };
