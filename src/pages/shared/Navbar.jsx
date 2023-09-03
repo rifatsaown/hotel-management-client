@@ -1,14 +1,17 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import Headroom from "react-headroom";
-import { BiLogInCircle, BiSolidDashboard } from "react-icons/bi";
+import { BiLogInCircle } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import useHeaderShadow from "../../hooks/useHeaderShawow";
 import { AuthContext } from "../../provider/AuthProvider";
 import { InfoContext } from "../../provider/InfoProvider";
 import { headerVariants } from "./motion";
+import useBookingList from "../../hooks/useBookingList";
 
 function NavBar() {
+  const {bookingList} = useBookingList();
+  
   const { user, logOut } = useContext(AuthContext);
   const { basicInfo } = useContext(InfoContext);
 
@@ -34,7 +37,8 @@ function NavBar() {
         <>
           <li>
             <Link>
-              Dashboard <BiSolidDashboard />
+              Dashboard 
+              <div className="badge">{bookingList.length}</div>
             </Link>
           </li>
         </>

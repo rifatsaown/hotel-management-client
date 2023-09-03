@@ -9,6 +9,7 @@ const InfoProvider = ({ children }) => {
   const [heroDetails, setHeroDetails] = useState([]);
   const [aboutUs, setAboutUs] = useState({});
   const [services, setServices] = useState([]);
+  const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
     axios.get("/api/hotelInfo").then((res) => {
@@ -25,6 +26,10 @@ const InfoProvider = ({ children }) => {
       axios.get("/api/services").then((res) => {
         setServices(res.data);
       });
+
+      axios.get("/rooms/allrooms").then((res) => {
+        setRooms(res.data);
+      });
     });
   }, []);
 
@@ -33,6 +38,7 @@ const InfoProvider = ({ children }) => {
     heroDetails,
     aboutUs,
     services,
+    rooms,
   };
 
   return (
