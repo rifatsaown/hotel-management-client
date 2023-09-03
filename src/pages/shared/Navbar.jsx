@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { useContext } from "react";
 import Headroom from "react-headroom";
-import { BiLogOutCircle , BiLogInCircle} from "react-icons/bi";
-import { NavLink } from "react-router-dom";
+import { BiLogInCircle, BiSolidDashboard } from "react-icons/bi";
+import { Link, NavLink } from "react-router-dom";
 import useHeaderShadow from "../../hooks/useHeaderShawow";
 import { AuthContext } from "../../provider/AuthProvider";
 import { InfoContext } from "../../provider/InfoProvider";
@@ -33,9 +33,9 @@ function NavBar() {
       {user ? (
         <>
           <li>
-            <button onClick={handleLogout}>
-              Logout <BiLogOutCircle />
-            </button>
+            <Link>
+              Dashboard <BiSolidDashboard />
+            </Link>
           </li>
         </>
       ) : (
@@ -94,7 +94,42 @@ function NavBar() {
               <ul className="menu menu-horizontal px-1">{links}</ul>
             </div>
             <div className="navbar-end">
-              <a className="btn btn-secondary btn-sm">Book Now</a>
+              <>
+                {user ? (
+                  <>
+                    <div className="dropdown dropdown-end">
+                      <label
+                        tabIndex={0}
+                        className="btn btn-ghost btn-circle avatar"
+                      >
+                        <div className="w-10 rounded-full">
+                          <img
+                            src={user?.photoURL ? user.photoURL : "./logo.png"}
+                          />
+                        </div>
+                      </label>
+                      <ul
+                        tabIndex={0}
+                        className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                      >
+                        <li>
+                          <a className="justify-between">Profile</a>
+                        </li>
+                        <li>
+                          <a>Dashboard</a>
+                        </li>
+                        <li>
+                          <a onClick={handleLogout}>Logout</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </>
+                ) : (
+                  <Link to="/booknow" className="btn btn-secondary btn-sm">
+                    Book Now
+                  </Link>
+                )}
+              </>
             </div>
           </div>
         </Headroom>

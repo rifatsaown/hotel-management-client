@@ -25,7 +25,7 @@ const PriceCard = () => {
       </motion.div>
       <div className="lg:flex gap-3 space-y-3 mx-8 my-8 text-center flex-wrap">
         
-      <motion.div variants={fadeIn("right", "tween", 0.7, 0.6)} className="card lg:w-96 backdrop-blur-3xl mt-3 hover:-translate-y-4 hover:transition-all">
+      <motion.div variants={fadeIn("down", "tween", 0.7, 0.6)} className="card lg:w-96 backdrop-blur-3xl mt-3 hover:-translate-y-4 hover:transition-all">
         <div className="card-body">
           <h2 className="text-2xl font-semibold">Standard Room</h2>
           <p className="font-semibold">$ <span className="text-4xl font-extrabold">40</span> /night</p>
@@ -58,7 +58,7 @@ const PriceCard = () => {
         </div>
       </motion.div>
 
-      <motion.div variants={fadeIn("left", "tween", 0.7, 0.6)} className="card lg:w-96 backdrop-blur-3xl hover:-translate-y-4 hover:transition-all">
+      <motion.div variants={fadeIn("down", "tween", 0.7, 0.6)} className="card lg:w-96 backdrop-blur-3xl hover:-translate-y-4 hover:transition-all">
         <div className="card-body">
           <h2 className="text-2xl font-semibold">Suite</h2>
           <p className="font-semibold">$ <span className="text-4xl font-extrabold">74</span> /night</p>

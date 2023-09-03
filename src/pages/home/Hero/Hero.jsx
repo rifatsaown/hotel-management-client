@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import { Autoplay, Navigation, Pagination, Parallax } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { InfoContext } from "../../../provider/InfoProvider";
-import AvailabilityForm from "./AvailabilityForm";
+import AvailabilityForm from "../../../components/AvailabilityForm";
 import "./Hero.css";
 import { BsFillCheckSquareFill } from "react-icons/bs";
 

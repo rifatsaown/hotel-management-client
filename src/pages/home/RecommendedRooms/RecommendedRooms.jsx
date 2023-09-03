@@ -22,7 +22,7 @@ const RecommendedRooms = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Room 1 */}
-          <motion.div variants={fadeIn("right", "tween", 0.5, 1)}>
+          <motion.div variants={fadeIn("up", "tween", 0.5, 1)}>
             <div className="bg-gray-400 rounded-lg shadow-md p-6">
               <img
                 src="http://parador-react.wpocean.com/product/1.jpg" // Replace with an actual image URL
@@ -62,7 +62,7 @@ const RecommendedRooms = () => {
             </div>
           </motion.div>
           {/* Room 3 */}
-          <motion.div variants={fadeIn("left", "tween", 0.5, 1)}>
+          <motion.div variants={fadeIn("up", "tween", 0.5, 1)}>
             <div className="bg-gray-400 rounded-lg shadow-md p-6">
               <img
                 src="http://parador-react.wpocean.com/product/3.jpg" // Replace with an actual image URL

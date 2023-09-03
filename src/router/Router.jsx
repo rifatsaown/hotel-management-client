@@ -8,6 +8,9 @@ import Login from "../pages/auth/Login/Login";
 import Register from "../pages/auth/Register/Register";
 import ResetPass from "../pages/auth/ResetPass/ResetPass";
 import About from "../pages/About/About";
+import LoginRoute from "./LoginRoute";
+import BookNow from "../pages/BookNow/BookNow";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -24,15 +27,19 @@ const router = createBrowserRouter([
       }, 
       {
         path: "/about",
-        element: <About/>,
+        element: <PrivateRoutes><About/></PrivateRoutes>,
       },
       {
         path: "/contact",
         element: <ContactFrom/>,
       },
       {
+        path: "/booknow",
+        element: <BookNow/>,
+      },
+      {
         path: "/auth",
-        element: <Auth/>,
+        element: <LoginRoute><Auth/></LoginRoute>,
         children: [
           {
             path: "",
@@ -49,7 +56,8 @@ const router = createBrowserRouter([
           {
             path: "resetpass",
             element: <ResetPass/>,
-          }
+          },
+          
         ],
       },
       {
@@ -58,6 +66,10 @@ const router = createBrowserRouter([
       }
     ],
   },
+  {
+    path: "*",
+    element: <h1>Not Found</h1>,
+  }
 ]);
 
 export default router;

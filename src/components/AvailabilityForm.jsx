@@ -2,16 +2,19 @@ import { enGB } from "date-fns/locale";
 import { useState } from "react";
 import { DateRangePicker, END_DATE, START_DATE } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
+import {  useNavigate } from "react-router-dom";
 
 function AvailabilityForm() {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(e.target.guests.value);
-    // console.log(startDate);
-    // console.log(endDate);
+    console.log(e.target.guests.value);
+    console.log(startDate);
+    console.log(endDate);
+    navigate("/booknow");
   }
 
   return (

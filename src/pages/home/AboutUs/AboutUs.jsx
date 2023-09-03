@@ -20,7 +20,7 @@ const AboutUs = () => {
         <div className="grid items-center lg:w-1/2 lg:order-last">
         <motion.span
               className="secondaryText"
-              variants={fadeIn("left", "tween", 0.4, 1)}
+              variants={fadeIn("up", "tween", 0.4, 1)}
             >
           <div className="pl-4">
             <h3 className="text-lg uppercase mb-4 text-slate-500">
@@ -39,7 +39,7 @@ const AboutUs = () => {
         <div >
         <motion.span
               className="primaryText"
-              variants={fadeIn("right", "tween", 0.2, 1)}
+              variants={fadeIn("Down", "tween", 0.2, 1)}
             >
           <div className="lg:w-1/2 lg:ml-20 p-4 ">
             <img className="rounded-xl" src={aboutUs?.bannerImg1} alt="" />

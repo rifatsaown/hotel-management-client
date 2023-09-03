@@ -6,7 +6,7 @@ import { TiWiFi } from "react-icons/ti";
 const Card = () => {
   // Can be load from API
   return (
-    <div className="flex space-x-4">
+    <div className="lg:flex lg:space-x-4">
       <div className="flex flex-col items-center w-full text-center backdrop-blur-2xl p-4 rounded-xl">
         <TiWiFi size={50} />
         <p>Free Wifi</p>
