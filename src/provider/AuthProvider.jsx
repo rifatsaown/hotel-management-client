@@ -49,6 +49,7 @@ const AuthProvider = ({ children }) => {
       setUser(user);
       // get and set jwt token in local storage with axios
       const userEmail = user?.email;
+      
       if (user) {
         axios
           .post("https://bestro-food-ts-server.onrender.com/jwt", {

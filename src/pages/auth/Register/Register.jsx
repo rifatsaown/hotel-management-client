@@ -11,7 +11,7 @@ import addUserToDb from "../../../components/addUserToDb";
 const Register = () => {
   const { registerWithEmail } = useContext(AuthContext); // Context
   const { register, handleSubmit } = useForm(); // React Hook Form
-  
+
   // Function to handle submit form
   const onSubmit = (data) => {
     // Register with email and password
@@ -24,9 +24,8 @@ const Register = () => {
           // Update name and photo
           updateNamePhoto(result.user, data.name, photoURL);
           // Add user to database
-          addUserToDb(data.name , data.email)
+          addUserToDb(data.name, data.email);
         });
-        console.log(result);
       })
       .catch((error) => {
         handleErrorLogin(error, "Register");

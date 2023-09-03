@@ -1,12 +1,16 @@
-import axios from "axios"
-
-const addUserToDb = (name , email) => {
-    const user = {
-        name,
-        email
-    }
-    return axios.post('http://localhost:5000/user/addUserToDb', user)
-    
-}
+const addUserToDb = async (name, email) => {
+  const user = {
+    name,
+    email,
+  };
+  return await fetch("http://localhost:5000/user/addUserToDb", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `bearer ${localStorage.getItem("JWT-token")}`,
+    },
+    body: JSON.stringify(user),
+  })
+};
 
 export default addUserToDb;
