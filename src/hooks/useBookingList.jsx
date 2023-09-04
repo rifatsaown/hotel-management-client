@@ -17,7 +17,7 @@ const useBookingList = () => {
       if (user) {
         // call this after 1 second
         const res = await axiosSecure(
-          `http://localhost:5000/booking/getBookingList?email=${user?.email}`
+          `https://galaxies-hotel.onrender.com/booking/getBookingList?email=${user?.email}`
         );
         return res.data;
       }

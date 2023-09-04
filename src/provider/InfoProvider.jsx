@@ -2,7 +2,7 @@ import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 export const InfoContext = createContext(null);
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = "https://galaxies-hotel.onrender.com";
 
 const InfoProvider = ({ children }) => {
   const [paymentInfo, setPaymentInfo] = useState({});
@@ -33,7 +33,6 @@ const InfoProvider = ({ children }) => {
       });
     });
   }, []);
-
 
   const hotelInfo = {
     paymentInfo,

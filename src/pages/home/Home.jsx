@@ -5,6 +5,7 @@ import PriceCard from "./PriceCard/PriceCard";
 import Services from "./Services/Services";
 import RecommendedRooms from "./RecommendedRooms/RecommendedRooms";
 import Newsletter from "./Newsletter/Newsletter";
+import Location from "./Location/Location";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <RecommendedRooms />
       <Services />
       <PriceCard />
+      <Location/>
       <Newsletter/>
     </div>
   );
