@@ -3,14 +3,14 @@ import { useContext } from "react";
 import Headroom from "react-headroom";
 import { BiLogInCircle } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
+import useBookingList from "../../hooks/useBookingList";
 import useHeaderShadow from "../../hooks/useHeaderShawow";
 import { AuthContext } from "../../provider/AuthProvider";
 import { InfoContext } from "../../provider/InfoProvider";
 import { headerVariants } from "./motion";
-import useBookingList from "../../hooks/useBookingList";
 
 function NavBar() {
-  const {bookingList} = useBookingList();
+  const { bookingList } = useBookingList();
   const { user, logOut } = useContext(AuthContext);
   const { basicInfo } = useContext(InfoContext);
 
@@ -35,10 +35,12 @@ function NavBar() {
       {user ? (
         <>
           <li>
-            <Link to="dashboard">
-              Dashboard 
-              <div className="badge">{bookingList.length}</div>
-            </Link>
+            
+                <Link to="dashboard/bookingList">
+                  Dashboard
+                  <div className="badge">{bookingList.length}</div>
+                </Link>
+             
           </li>
         </>
       ) : (
@@ -115,12 +117,19 @@ function NavBar() {
                         tabIndex={0}
                         className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                       >
-                        <li>
-                          <a className="justify-between">Profile</a>
-                        </li>
-                        <li>
-                          <Link to ='/dashboard'>Dashboard</Link>
-                        </li>
+                        
+                            <li>
+                              <Link
+                                to="/dashboard/userhome"
+                                className="justify-between"
+                              >
+                                Profile
+                              </Link>
+                            </li>
+                            <li>
+                              <Link to="/dashboard/bookingList">Dashboard</Link>
+                            </li>
+                         
                         <li>
                           <a onClick={handleLogout}>Logout</a>
                         </li>

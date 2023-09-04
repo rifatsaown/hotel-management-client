@@ -18,6 +18,8 @@ import AllUsers from "../pages/Dashboard/AllUsers";
 import MyBookingList from "../pages/Dashboard/MyBookingList";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import PaymentHistory from "../pages/Dashboard/PaymentHistory";
+import UserHome from "../pages/Dashboard/UserHome";
+import AdminHome from "../pages/Dashboard/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -84,10 +86,6 @@ const router = createBrowserRouter([
       ),
       children: [
         {
-          path: "mycart",
-          // element: <MyCart />,
-        },
-        {
           path: "payment",
           element: <Payment />,
         },
@@ -100,10 +98,14 @@ const router = createBrowserRouter([
           element: <MyBookingList />,
         },
         {
-          path: "home",
+          path: "userhome",
+          element: <UserHome/>,
+        },
+        {
+          path: "adminhome",
           element: (
             <AdminRoute>
-              <Home />
+              <AdminHome/>
             </AdminRoute>
           ),
         },

@@ -1,7 +1,7 @@
 import { updateProfile } from "firebase/auth";
 
 const updateNamePhoto = (user , displayName , photoURL) => {
-    updateProfile(user,{
+    return updateProfile(user,{
     displayName,
     photoURL
   });

@@ -3,13 +3,15 @@ import { FaTrashAlt } from "react-icons/fa";
 
 import Swal from "sweetalert2";
 
-import useBookingList from "../../hooks/useBookingList";
 import { useContext } from "react";
-import { InfoContext } from "../../provider/InfoProvider";
 import { useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import useBookingList from "../../hooks/useBookingList";
+import { InfoContext } from "../../provider/InfoProvider";
 
 const MyBookingList = () => {
-  const {setPaymentInfo} = useContext(InfoContext);
+  const [axiosSecure] = useAxiosSecure();
+  const { setPaymentInfo } = useContext(InfoContext);
   const { bookingList, refetch } = useBookingList();
   const navigate = useNavigate();
 
@@ -24,8 +26,17 @@ const MyBookingList = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        console.log(id);
-        refetch();
+        axiosSecure
+          .delete(`/booking/deleteBooking/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              refetch();
+            }
+          })
+          .catch((err) => {
+            Swal.fire("Error!", "Something went wrong - " + err, "error");
+          });
       }
     });
   };
@@ -33,11 +44,10 @@ const MyBookingList = () => {
   const handlePay = (item) => {
     const paymentData = {
       item: item,
-    }
+    };
     setPaymentInfo(paymentData);
     navigate("/dashboard/payment");
-  }
-
+  };
 
   return (
     <>
@@ -68,9 +78,8 @@ const MyBookingList = () => {
                     <th>Booking Days</th>
                     <th>Total Price</th>
                     <th>Daily Price</th>
-                    <th>Pay</th> 
+                    <th>Pay</th>
                     <th>Delete</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -82,7 +91,10 @@ const MyBookingList = () => {
                           <td>
                             <div className="avatar">
                               <div className="w-32">
-                                <img src={item.roomData.image} alt="Food Image" />
+                                <img
+                                  src={item.roomData.image}
+                                  alt="Food Image"
+                                />
                               </div>
                             </div>
                           </td>
@@ -91,8 +103,8 @@ const MyBookingList = () => {
                           <td>{item.roomData.pricePerNight}</td>
                           <td>${item.totalPrice}</td>
                           <td>
-                          <button onClick={() => handlePay(item)}
-                              
+                            <button
+                              onClick={() => handlePay(item)}
                               className="btn btn-accent btn-sm text-lg bg-green-700 text-white"
                             >
                               Pay
