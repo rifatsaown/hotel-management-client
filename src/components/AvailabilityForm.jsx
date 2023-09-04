@@ -2,7 +2,7 @@ import { enGB } from "date-fns/locale";
 import { useState } from "react";
 import { DateRangePicker, END_DATE, START_DATE } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
-import {  useNavigate } from "react-router-dom";
+import {  Link, useNavigate } from "react-router-dom";
 
 function AvailabilityForm() {
   const [startDate, setStartDate] = useState();
@@ -61,11 +61,11 @@ function AvailabilityForm() {
                 />
               </div>
               <div>
-                <input
+                <Link to="/rooms"
                   className="btn mb-2 btn-primary lg:ml-2"
                   type="submit"
                   value="Check Availability"
-                />
+                >Search</Link>
               </div>
             </form>
           )}

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { fadeIn, staggerChildren } from "../../shared/motion";
+import { Link } from "react-router-dom";
 
 const RecommendedRooms = () => {
   return (
@@ -38,7 +39,7 @@ const RecommendedRooms = () => {
                 <li>City view balcony</li>
                 <li>Spa and fitness center access</li>
               </ul>
-              <button className="btn btn-primary mt-4 w-full">Book Now</button>
+              <Link to='/rooms' className="btn btn-primary mt-4 w-full">Book Now</Link>
             </div>
           </motion.div>
           {/* Room 2 */}
@@ -58,7 +59,7 @@ const RecommendedRooms = () => {
                 <li>Private pool</li>
                 <li>Personal chef available</li>
               </ul>
-              <button className="btn btn-primary mt-4 w-full">Book Now</button>
+              <Link to='/rooms' className="btn btn-primary mt-4 w-full">Book Now</Link>
             </div>
           </motion.div>
           {/* Room 3 */}
@@ -78,7 +79,7 @@ const RecommendedRooms = () => {
                 <li>City view</li>
                 <li>Free Wi-Fi</li>
               </ul>
-              <button className="btn btn-primary mt-4 w-full">Book Now</button>
+              <Link to='/rooms' className="btn btn-primary mt-4 w-full">Book Now</Link>
             </div>
           </motion.div>
         </div>
