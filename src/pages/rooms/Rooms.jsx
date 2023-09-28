@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
-import { useLocation, useNavigate } from "react-router-dom";
+import { ScrollRestoration, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import { InfoContext } from "../../provider/InfoProvider";
 
@@ -82,6 +82,7 @@ const Rooms = () => {
           </button>
         ))}
       </div>
+      <ScrollRestoration/>
     </div>
   );
 };

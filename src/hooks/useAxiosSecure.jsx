@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: "https://galaxies-hotel.onrender.com",
+  baseURL: "https://hotel-ts.vercel.app",
 });
 
 const useAxiosSecure = () => {

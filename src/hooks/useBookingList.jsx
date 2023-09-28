@@ -17,7 +17,7 @@ const useBookingList = () => {
       if (user) {
         // call this after 1 second
         const res = await axiosSecure(
-          `https://galaxies-hotel.onrender.com/booking/getBookingList?email=${user?.email}`
+          `https://hotel-ts.vercel.app/booking/getBookingList?email=${user?.email}`
         );
         return res.data;
       }

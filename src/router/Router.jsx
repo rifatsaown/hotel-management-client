@@ -38,7 +38,7 @@ const router = createBrowserRouter([
         path: "/rooms/:id",
         element: <RoomDetails />,
         loader: ({ params }) =>
-          fetch(`https://galaxies-hotel.onrender.com/rooms/${params.id}`),
+          fetch(`https://hotel-ts.vercel.app/rooms/${params.id}`),
       },
       {
         path: "/about",
