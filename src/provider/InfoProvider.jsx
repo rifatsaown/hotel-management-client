@@ -1,8 +1,8 @@
-import axios from "axios";
-import { createContext, useEffect, useState } from "react";
+import axios from 'axios';
+import { createContext, useEffect, useState } from 'react';
 
 export const InfoContext = createContext(null);
-axios.defaults.baseURL = "https://hotel-ts.vercel.app";
+axios.defaults.baseURL = 'http://localhost:5000';
 
 const InfoProvider = ({ children }) => {
   const [paymentInfo, setPaymentInfo] = useState({});
@@ -13,22 +13,22 @@ const InfoProvider = ({ children }) => {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/hotelInfo").then((res) => {
+    axios.get('/api/hotelInfo').then((res) => {
       setBasicInfo(res.data[0]);
 
-      axios.get("/api/heroDetails").then((res) => {
+      axios.get('/api/heroDetails').then((res) => {
         setHeroDetails(res.data);
       });
 
-      axios.get("/api/aboutUs").then((res) => {
+      axios.get('/api/aboutUs').then((res) => {
         setAboutUs(res.data);
       });
 
-      axios.get("/api/services").then((res) => {
+      axios.get('/api/services').then((res) => {
         setServices(res.data);
       });
 
-      axios.get("/rooms/allrooms").then((res) => {
+      axios.get('/rooms/allrooms').then((res) => {
         setRooms(res.data);
       });
     });

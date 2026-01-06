@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
@@ -7,9 +7,9 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
-} from "firebase/auth";
-import { createContext, useEffect, useState } from "react";
-import app from "../firebase/firebase.config";
+} from 'firebase/auth';
+import { createContext, useEffect, useState } from 'react';
+import app from '../firebase/firebase.config';
 
 // Create a context for the current user
 export const AuthContext = createContext(null);
@@ -49,19 +49,19 @@ const AuthProvider = ({ children }) => {
       setUser(user);
       // get and set jwt token in local storage with axios
       const userEmail = user?.email;
-      
+
       if (user) {
         axios
-          .post("https://hotel-ts.vercel.app/jwt", {
+          .post('http://localhost:5000/jwt', {
             email: userEmail,
           })
           .then((res) => {
-            localStorage.setItem("JWT-token", res.data.token);
+            localStorage.setItem('JWT-token', res.data.token);
             setLoading(false);
           });
       } else {
         setLoading(false);
-        localStorage.removeItem("JWT-token");
+        localStorage.removeItem('JWT-token');
       }
     });
 

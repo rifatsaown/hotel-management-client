@@ -1,10 +1,10 @@
-import axios from "axios";
-import { useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../provider/AuthProvider";
+import axios from 'axios';
+import { useContext, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
 
 const axiosSecure = axios.create({
-  baseURL: "https://hotel-ts.vercel.app",
+  baseURL: 'http://localhost:5000',
 });
 
 const useAxiosSecure = () => {
@@ -13,7 +13,7 @@ const useAxiosSecure = () => {
 
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
-      const token = localStorage.getItem("JWT-token");
+      const token = localStorage.getItem('JWT-token');
       if (token) {
         config.headers.Authorization = `bearer ${token}`;
       }
@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
           (error.response.status === 401 || error.response.status === 403)
         ) {
           await logOut();
-          navigate("/auth/login", { replace: true });
+          navigate('/auth/login', { replace: true });
         }
         return Promise.reject(error);
       }

@@ -3,11 +3,11 @@ const addUserToDb = async (name, email) => {
     name,
     email,
   };
-  return await fetch("https://hotel-ts.vercel.app/user/addUserToDb", {
-    method: "POST",
+  return await fetch('http://localhost:5000/user/addUserToDb', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${localStorage.getItem("JWT-token")}`,
+      'Content-Type': 'application/json',
+      Authorization: `bearer ${localStorage.getItem('JWT-token')}`,
     },
     body: JSON.stringify(user),
   });
