@@ -2,12 +2,12 @@
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_apiKey ,
-  authDomain: import.meta.env.VITE_authDomain ,
-  projectId: import.meta.env.VITE_projectId ,
-  storageBucket: import.meta.env.VITE_storageBucket ,
-  messagingSenderId: import.meta.env.VITE_messagingSenderId ,
-  appId: import.meta.env.VITE_appId ,
+  apiKey: "AIzaSyCdTKJkHMiCqEAVETiW8M1W7kkLQWDx53Q",
+  authDomain: "galaxies-hotel.firebaseapp.com",
+  projectId: "galaxies-hotel",
+  storageBucket: "galaxies-hotel.firebasestorage.app",
+  messagingSenderId: "482025722224",
+  appId: "1:482025722224:web:9a2bbe3efc863181417fb5"
 };
 
 // Initialize Firebase
