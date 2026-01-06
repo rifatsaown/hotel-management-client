@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
       
       if (user) {
         axios
-          .post("https://bestro-food-ts-server.onrender.com/jwt", {
+          .post("https://hotel-ts.vercel.app/jwt", {
             email: userEmail,
           })
           .then((res) => {
