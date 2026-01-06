@@ -2,7 +2,7 @@ import axios from 'axios';
 import { createContext, useEffect, useState } from 'react';
 
 export const InfoContext = createContext(null);
-axios.defaults.baseURL = 'http://localhost:5000';
+axios.defaults.baseURL = 'https://hotel-ts.vercel.app';
 
 const InfoProvider = ({ children }) => {
   const [paymentInfo, setPaymentInfo] = useState({});

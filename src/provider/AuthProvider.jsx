@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
 
       if (user) {
         axios
-          .post('http://localhost:5000/jwt', {
+          .post('https://hotel-ts.vercel.app/jwt', {
             email: userEmail,
           })
           .then((res) => {
